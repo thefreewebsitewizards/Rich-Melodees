@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Melodees - High-Energy Live Band</title>
+<link href="images/Melodees-logo.png" rel="icon" type="image/png"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@100..900&amp;family=Noto+Sans:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9fd189",
+                        "primary-glow": "rgba(159, 209, 137, 0.4)",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#181611",
+                        "surface-dark": "#231d0f",
+                        "surface-card": "#2d2a22",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    backgroundImage: {
+                        'spotlight-gradient': 'radial-gradient(circle at center, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 70%)',
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 5rem;
+        }
+
+        /* Custom scrollbar for dark vibe */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #181611;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3a3427;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #fab40f;
+        }
+        
+        .glass-nav {
+            background: rgba(24, 22, 17, 0.85);
+            backdrop-filter: blur(12px);
+        }
+
+        .neon-border {
+            box-shadow: 0 0 10px rgba(250, 180, 15, 0.1), inset 0 0 10px rgba(250, 180, 15, 0.1);
+            transition: all 0.3s ease;
+        }
+        .neon-border:hover {
+            box-shadow: 0 0 20px rgba(250, 180, 15, 0.3), inset 0 0 15px rgba(250, 180, 15, 0.2);
+            border-color: #fab40f;
+        }
+
+        .stage-light-bg {
+            background: radial-gradient(circle at 50% -20%, rgba(250, 180, 15, 0.15), transparent 60%);
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-white font-display antialiased overflow-x-hidden selection:bg-primary selection:text-black">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Navigation -->
+<header class="fixed top-0 z-50 w-full glass-nav border-b border-[#3a3427]">
+<div class="mx-auto max-w-[1200px] px-5 sm:px-10 h-20 flex items-center justify-between">
+<div class="flex items-center gap-3 text-white">
+<img alt="The Melodees logo" class="h-16 w-auto" src="images/Melodees-logo.png"/>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-wide" href="#about">About</a>
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-wide" href="#videos">Videos</a>
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-wide" href="#rates">Rates</a>
+</nav>
+<a class="hidden sm:flex cursor-pointer items-center justify-center rounded-lg bg-primary hover:bg-yellow-400 transition-all h-10 px-6 text-[#181611] text-sm font-bold tracking-wide shadow-[0_0_15px_rgba(250,180,15,0.4)]" href="#contact">
+                    Book Now
+                </a>
+<!-- Mobile Menu Icon -->
+<button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="md:hidden text-white" id="mobileMenuButton" type="button">
+<span class="material-symbols-outlined" id="mobileMenuIcon">menu</span>
+</button>
+</div>
+<div class="md:hidden hidden border-t border-[#3a3427]" id="mobileMenu">
+<nav class="mx-auto max-w-[1200px] px-5 sm:px-10 py-6 bg-[#181611]/95 backdrop-blur-md">
+<div class="flex flex-col gap-4">
+<a class="text-gray-200 hover:text-primary transition-colors text-base font-semibold uppercase tracking-wide" href="#about">About</a>
+<a class="text-gray-200 hover:text-primary transition-colors text-base font-semibold uppercase tracking-wide" href="#videos">Videos</a>
+<a class="text-gray-200 hover:text-primary transition-colors text-base font-semibold uppercase tracking-wide" href="#rates">Rates</a>
+<a class="text-gray-200 hover:text-primary transition-colors text-base font-semibold uppercase tracking-wide" href="#contact">Contact</a>
+<a class="mt-2 inline-flex items-center justify-center rounded-lg bg-primary hover:bg-yellow-400 transition-all h-12 px-6 text-[#181611] text-sm font-bold tracking-wide shadow-[0_0_15px_rgba(250,180,15,0.4)]" href="#contact">
+                            Book Now
+                        </a>
+</div>
+</nav>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative pt-20 min-h-[90vh] flex items-center justify-center overflow-hidden">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-t from-[#181611] via-[#181611]/80 to-[#181611]/40 z-10"></div>
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1501612780327-45045538702b?q=80&amp;w=2070&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-60" data-alt="Concert stage with lights and smoke atmosphere"></div>
+</div>
+<div class="relative z-10 container mx-auto px-5 sm:px-10 max-w-[1200px] flex flex-col items-center text-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/10 mb-6 animate-fade-in-up">
+<span class="size-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-xs font-bold tracking-widest uppercase text-white/90">Now Booking 2024-2025</span>
+</div>
+<h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tighter mb-6 text-transparent bg-clip-text bg-gradient-to-br from-white via-gray-200 to-gray-500 drop-shadow-2xl">
+                    THE MELODEES
+                </h1>
+<p class="text-xl md:text-2xl text-gray-300 font-light max-w-2xl mb-10 leading-relaxed">
+                    A high-energy 6-piece live band crafting unforgettable moments for weddings, corporate events, and parties.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+<a class="group flex items-center justify-center gap-2 h-14 px-8 rounded-full bg-primary hover:bg-yellow-400 text-black text-lg font-bold transition-all shadow-[0_0_20px_rgba(250,180,15,0.3)] hover:shadow-[0_0_30px_rgba(250,180,15,0.5)] transform hover:-translate-y-1" href="#contact">
+                        Book the Band
+                        <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+<a class="flex items-center justify-center gap-2 h-14 px-8 rounded-full border-2 border-white/20 hover:border-white hover:bg-white/5 text-white text-lg font-bold transition-all backdrop-blur-sm" href="#videos">
+<span class="material-symbols-outlined filled">play_circle</span>
+                        Watch Live
+                    </a>
+</div>
+</div>
+<!-- Audio Waveform Decoration -->
+<div class="absolute bottom-0 left-0 right-0 h-24 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDMyMCI+PHBhdGggZmlsbD0iIzE4MTYxMSIgZmlsbC1vcGFjaXR5PSIxIiBkPSJNMCAyMjRMNjAgMjEzLjNDMTIwIDIwMyAxODAgMTgxIDI0MCAxOTJDMzAwIDIwMyAzNjAgMjQ1IDQyMCAyNTZUNDgwIDI0MEM1NDAgMjEzIDYwMCAxNDkgNjYwIDEzOC43QzcyMCAxMjggNzgwIDE3MSA4NDAgMTkyQzkwMCAyMTMgOTYwIDIxMyAxMDIwIDE5MkwxMDgwIDE3MC43QzExNDAgMTQ5IDEyMDAgODUgMTI2MCA4MC41QzEzMjAgNzYgMTM4MCAxMzEgMTQxMCAxNTguN0wxNDQwIDE4NkwxNDQwIDMyMEwxNDEwIDMyMEMxMzgwIDMyMCAxMzIwIDMyMCAxMjYwIDMyMEMxMjAwIDMyMCAxMTQwIDMyMCAxMDgwIDMyMEMxMDIwIDMyMCA5NjAgIDMyMCA5MDAgMzIwQzg0MCAzMjAgNzgwIDMyMCA3MjAgMzIwQzY2MCAzMjAgNjAwIDMyMCA1NDAgMzIwQzQ4MCAzMjAgNDIwIDMyMCAzNjAgMzIwQzMwMCAzMjAgMjQwIDMyMCAxODAgMzIwQzEyMCAzMjAgNjAgMzIwIDAgMzIwWiI+PC9wYXRoPjwvc3ZnPg==')] bg-cover bg-bottom opacity-100 z-10 pointer-events-none"></div>
+</section>
+<!-- Main Content Container -->
+<main class="flex-grow w-full max-w-[1200px] mx-auto px-5 sm:px-10 py-12 flex flex-col gap-24 relative z-20">
+<!-- About Section -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center scroll-mt-24" id="about">
+<div class="relative group">
+<div class="absolute -inset-4 bg-gradient-to-r from-primary to-purple-600 rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
+<div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+<img alt="The Melodees band performing live on stage with drummer and guitarist" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Band performing live with high energy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-X0676qPOLaKerHVB3a3BCXg16MTEz55VOKrPoecqPPMcpoityCXyHNkp-KUk2s36i8XVMZ0geFAgDbgHPctDkF2ue48Cv3we9w5EvzG-qgVEH9Rwnc-Pg_a60884gDb0CObq1P_Xdcu4EA2RVpIhrPNfWuN-TKVyD2vz7z1j1YOe3f6gTBjnnwMZmEenFGLsAxTiMdUPm6tMdYktwfGXrqxzrpibvkumCv_FRsvdkx-TIyPa_woUJSs4YtV2V5macMc5Ukv86OU"/>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-2 text-primary">
+<span class="h-px w-8 bg-primary"></span>
+<span class="text-sm font-bold uppercase tracking-widest">About The Band</span>
+</div>
+<h2 class="text-3xl md:text-5xl font-bold leading-tight">We Bring The <span class="text-primary">Energy</span>.</h2>
+<p class="text-gray-400 text-lg leading-relaxed font-body">
+                        The Melodees are a vibrant 6-piece ensemble bringing high energy and premium live entertainment to weddings, corporate events, and parties. We specialize in creating unforgettable moments with our dynamic stage presence, covering hits from Motown to modern Pop.
+                    </p>
+<div class="grid grid-cols-3 gap-4 pt-4 border-t border-white/10 mt-2">
+<div class="text-center md:text-left">
+<span class="block text-2xl font-bold text-white">500+</span>
+<span class="text-xs uppercase text-gray-500 font-bold">Events Played</span>
+</div>
+<div class="text-center md:text-left">
+<span class="block text-2xl font-bold text-white">6</span>
+<span class="text-xs uppercase text-gray-500 font-bold">Members</span>
+</div>
+<div class="text-center md:text-left">
+<span class="block text-2xl font-bold text-white">100%</span>
+<span class="text-xs uppercase text-gray-500 font-bold">Live Music</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Video Gallery Section -->
+<section class="flex flex-col gap-10 scroll-mt-24" id="videos">
+<div class="flex flex-col items-center text-center gap-4">
+<h2 class="text-3xl md:text-4xl font-bold">Live Experience</h2>
+<p class="text-gray-400 max-w-lg">See us in action. No backing tracks, just pure live energy.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Video 1 -->
+<a class="group relative aspect-[9/16] bg-surface-card rounded-xl overflow-hidden neon-border cursor-pointer block" href="https://www.instagram.com/reel/DJmNIwgRIYM/?igsh=MW5lM3p0Y2p1M2d1OA==" rel="noopener noreferrer" target="_blank">
+<img class="w-full h-full object-cover opacity-70 group-hover:opacity-40 transition-opacity duration-300" data-alt="Vertical video thumbnail of singer performing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ4ZbTODNi35uv4oDcxXMaGLYSXQQogJSDoOOiL1-XXZ0qznt5bM8GMXs5fE8RVZtz4wGTo-2Gd-zh5ObcXMfvM97P3O2J0WQb4dHr4Tv_OPI16PTkGOZeqKkPwJ32E_nT4rRH8mg7dmqYH7TKNNcSn8cl1t1k9toMpA2wKxWPV7I-hplKW7lIIqxDxG_Pzv9jqH-6DNCuGPoR-UeJjmvv4IwD8qETbSo_Oc-dwakpZeLBw_-KmhY4w2a8sclAJCcfxgImjcSCI-4"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="size-16 rounded-full bg-primary/90 flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-black text-3xl filled">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
+<span class="text-sm font-bold text-white">Wedding Reception</span>
+<p class="text-xs text-gray-300">September 2023</p>
+</div>
+</a>
+<!-- Video 2 -->
+<a class="group relative aspect-[9/16] bg-surface-card rounded-xl overflow-hidden neon-border cursor-pointer block" href="https://www.facebook.com/share/v/17VZuFoAGL/?mibextid=wwXIfr" rel="noopener noreferrer" target="_blank">
+<img class="w-full h-full object-cover opacity-70 group-hover:opacity-40 transition-opacity duration-300" data-alt="Vertical video thumbnail of guitarist solo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAdBFydNBGKX8MVxREJDIyLC56TRggqoKOzOU_pOiVx2nn47S-nA0vd6vsXxkdBWQzuNvpLELE2HcYII0x7KRrjLMHJfY4mNLLSg2xI8EALlKhV5OWbHerXezex8X6uDge_ELbm_b7e6RWo_NAfkEWIIYkM7avDIxMiujCp6PuLT9yp9MPVOT3hxjqUtPcOBv2CfVyW62MH69oJuYI9KBTYmOF7LzVwnTfp4N4xLA9tBD6soj26_mQEAHMihf6KJPSvWdFnm2cJJE"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="size-16 rounded-full bg-primary/90 flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-black text-3xl filled">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
+<span class="text-sm font-bold text-white">Corporate Gala</span>
+<p class="text-xs text-gray-300">Annual Tech Summit</p>
+</div>
+</a>
+<!-- Video 3 -->
+<a class="group relative aspect-[9/16] bg-surface-card rounded-xl overflow-hidden neon-border cursor-pointer block" href="https://www.instagram.com/reel/DJmKYEpRmuj/?igsh=dGg4OHkwaHVhdngz" rel="noopener noreferrer" target="_blank">
+<img class="w-full h-full object-cover opacity-70 group-hover:opacity-40 transition-opacity duration-300" data-alt="Vertical video thumbnail of crowd dancing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8Y5Mw6lfZLp4nAgQzD-l5CBlA-JCn2eW2JKMddcYbxidhM5-EcCQdzURTKYYbDlku0tdjtMdHqnItdqAS5AEGwVIJdE_guV4Ahu4_8hyV8zj8ogzfY7Ab3a3o-_as0fDX2xGCm9n8o0fVAzUucNmsa6cw3srHma0J-R1DICLb-CJyDyoM8aLfXZKILZBNr9mFsZypBq2lkm4FNxl3K2N5vo3G411aYgbhHEhTJC0g2MjeE5SYLTe74jvOhXeH0w_75lMFZvV7IJY"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="size-16 rounded-full bg-primary/90 flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-black text-3xl filled">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
+<span class="text-sm font-bold text-white">Private Party</span>
+<p class="text-xs text-gray-300">Summer Bash</p>
+</div>
+</a>
+<!-- Video 4 -->
+<a class="group relative aspect-[9/16] bg-surface-card rounded-xl overflow-hidden neon-border cursor-pointer block" href="https://www.instagram.com/reel/DJmLKXWR-pC/?igsh=ZmszdHR5eDU1OHZk" rel="noopener noreferrer" target="_blank">
+<img class="w-full h-full object-cover opacity-70 group-hover:opacity-40 transition-opacity duration-300" data-alt="Vertical video thumbnail of live performance on stage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ4ZbTODNi35uv4oDcxXMaGLYSXQQogJSDoOOiL1-XXZ0qznt5bM8GMXs5fE8RVZtz4wGTo-2Gd-zh5ObcXMfvM97P3O2J0WQb4dHr4Tv_OPI16PTkGOZeqKkPwJ32E_nT4rRH8mg7dmqYH7TKNNcSn8cl1t1k9toMpA2wKxWPV7I-hplKW7lIIqxDxG_Pzv9jqH-6DNCuGPoR-UeJjmvv4IwD8qETbSo_Oc-dwakpZeLBw_-KmhY4w2a8sclAJCcfxgImjcSCI-4"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="size-16 rounded-full bg-primary/90 flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-black text-3xl filled">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
+<span class="text-sm font-bold text-white">Live Highlight</span>
+<p class="text-xs text-gray-300">Watch on Instagram</p>
+</div>
+</a>
+</div>
+<!-- Social Connect -->
+<div class="flex justify-center gap-6 mt-4">
+<a class="flex items-center gap-3 px-6 py-3 rounded-lg border border-white/20 hover:border-primary/50 hover:bg-surface-card transition-all group" target="_blank" href="https://www.instagram.com/the_melodees?igsh=eXowcjV4MDE3c2Nx&utm_source=qr">
+<span class="material-symbols-outlined text-3xl text-gray-400 group-hover:text-primary transition-colors">photo_camera</span>
+<span class="text-sm font-bold uppercase tracking-wide group-hover:text-white">Instagram</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 rounded-lg border border-white/20 hover:border-blue-500/50 hover:bg-surface-card transition-all group" target="_blank" href="https://www.facebook.com/share/1BQ5uEsm3a/?mibextid=wwXIfr">
+<span class="material-symbols-outlined text-3xl text-gray-400 group-hover:text-blue-500 transition-colors">thumb_up</span>
+<span class="text-sm font-bold uppercase tracking-wide group-hover:text-white">Facebook</span>
+</a>
+</div>
+</section>
+<!-- Packages & Rates -->
+<section class="flex flex-col gap-10 scroll-mt-24" id="rates">
+<div class="flex items-center gap-4">
+<h2 class="text-3xl md:text-4xl font-bold whitespace-nowrap">Rates &amp; Packages</h2>
+<div class="h-px bg-white/10 w-full"></div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Standard Package -->
+<div class="lg:col-span-2 rounded-2xl bg-surface-card border border-white/10 p-8 hover:border-primary/50 transition-colors relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-9xl">music_note</span>
+</div>
+<div class="relative z-10 flex flex-col h-full justify-between gap-6">
+<div>
+<h3 class="text-2xl font-bold text-white mb-2">Standard Performance Set</h3>
+<p class="text-gray-400 mb-6">Perfect for wedding receptions and corporate dinners.</p>
+<ul class="space-y-3">
+<li class="flex items-start gap-3 text-gray-300">
+<span class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
+<span>Full 6-Piece Band (Vocals, Guitar, Bass, Keys, Drums, Sax)</span>
+</li>
+<li class="flex items-start gap-3 text-gray-300">
+<span class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
+<span>2 x 45 Minute Live Sets</span>
+</li>
+<li class="flex items-start gap-3 text-gray-300">
+<span class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
+<span>Setup &amp; Sound Check Included</span>
+</li>
+<li class="flex items-start gap-3 text-gray-300">
+<span class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
+<span>Pre-show playlist music</span>
+</li>
+</ul>
+</div>
+<div class="pt-6 border-t border-white/10 flex items-end justify-between">
+<div>
+<span class="text-sm text-gray-500 uppercase font-bold">Starting At</span>
+<div class="text-4xl font-black text-primary">$1,800</div>
+</div>
+<a class="text-sm font-bold underline decoration-primary underline-offset-4 hover:text-primary transition-colors" href="#contact">Inquire Availability</a>
+</div>
+</div>
+</div>
+<!-- Add-on -->
+<div class="rounded-2xl bg-[#1e1b15] border border-white/5 p-8 flex flex-col justify-between gap-6 relative">
+<div>
+<div class="inline-block px-3 py-1 bg-white/10 rounded-full text-xs font-bold uppercase tracking-wider mb-4">Add-On</div>
+<h3 class="text-xl font-bold text-white mb-2">Pro Audio Package</h3>
+<p class="text-gray-400 text-sm mb-4">Don't have a PA system at the venue? We'll bring ours.</p>
+<ul class="space-y-3 mb-6">
+<li class="flex items-start gap-3 text-gray-400 text-sm">
+<span class="material-symbols-outlined text-gray-500 text-sm mt-1">add</span>
+<span>Professional PA System</span>
+</li>
+<li class="flex items-start gap-3 text-gray-400 text-sm">
+<span class="material-symbols-outlined text-gray-500 text-sm mt-1">add</span>
+<span>Stage Lighting Kit</span>
+</li>
+<li class="flex items-start gap-3 text-gray-400 text-sm">
+<span class="material-symbols-outlined text-gray-500 text-sm mt-1">add</span>
+<span>Sound Engineer</span>
+</li>
+</ul>
+</div>
+<div class="pt-6 border-t border-white/5">
+<span class="text-sm text-gray-500 uppercase font-bold">Add for</span>
+<div class="text-3xl font-black text-white">$200</div>
+</div>
+</div>
+</div>
+<p class="text-center text-gray-500 text-sm italic">* Rates are negotiable based on location, travel requirements, and specific event needs.</p>
+</section>
+<!-- Contact Section -->
+<section class="max-w-3xl mx-auto w-full pt-10 scroll-mt-24" id="contact">
+<div class="rounded-3xl bg-surface-card border border-white/10 p-8 md:p-12 shadow-2xl relative overflow-hidden">
+<!-- Decorative background glow -->
+<div class="absolute -top-24 -right-24 size-64 bg-primary rounded-full blur-[100px] opacity-10 pointer-events-none"></div>
+<div class="relative z-10">
+<div class="text-center mb-10">
+<h2 class="text-3xl font-bold mb-2">Let's Get This Party Started</h2>
+<p class="text-gray-400">Fill out the form below to check availability and get a custom quote.</p>
+</div>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-gray-400 ml-1">Your Name</label>
+<input class="w-full bg-background-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder-gray-600" placeholder="Jane Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-gray-400 ml-1">Email Address</label>
+<input class="w-full bg-background-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder-gray-600" placeholder="jane@example.com" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-gray-400 ml-1">Event Date</label>
+<input class="w-full bg-background-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all [color-scheme:dark]" type="date"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-gray-400 ml-1">Event Type</label>
+<select class="w-full bg-background-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+<option>Wedding Reception</option>
+<option>Corporate Event</option>
+<option>Private Party</option>
+<option>Festival / Public Event</option>
+<option>Other</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-gray-400 ml-1">Message / Details</label>
+<textarea class="w-full bg-background-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder-gray-600" placeholder="Tell us about your venue, vibe, and any special requests..." rows="4"></textarea>
+</div>
+<button class="w-full bg-primary hover:bg-yellow-400 text-black font-bold py-4 rounded-lg text-lg uppercase tracking-widest shadow-lg hover:shadow-[0_0_20px_rgba(250,180,15,0.4)] transition-all transform hover:-translate-y-1" type="button">
+                                Send Inquiry
+                            </button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-dark border-t border-white/5 pt-16 pb-8 relative overflow-hidden">
+<!-- Background Waveform -->
+<div class="absolute top-0 left-0 right-0 h-full w-full opacity-5 pointer-events-none" style="background-image: repeating-linear-gradient(90deg, transparent, transparent 49px, #fff 50px); background-size: 50px 100%;"></div>
+<div class="container mx-auto px-5 sm:px-10 max-w-[1200px] relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 mb-12">
+<div class="text-center md:text-left">
+<div class="flex items-center justify-center md:justify-start gap-2 text-white mb-4">
+<img alt="The Melodees logo" class="h-16 w-auto" src="images/Melodees-logo.png"/>
+</div>
+<p class="text-gray-400 max-w-xs mx-auto md:mx-0">Premium live entertainment that brings the house down, every single time.</p>
+</div>
+<div class="flex flex-col items-center md:items-end gap-2">
+<h4 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-2">Management</h4>
+<a class="text-xl font-bold text-white hover:text-primary transition-colors" href="mailto:rich@themelodees.com">Rich Guerzon</a>
+<span class="text-gray-400">+1 (555) 123-4567</span>
+<a class="text-gray-400 hover:text-white transition-colors" href="mailto:booking@themelodees.com">booking@themelodees.com</a>
+</div>
+</div>
+<div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-gray-600 text-sm">© 2024 The Melodees. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-gray-600 hover:text-white text-sm transition-colors" href="#">Privacy Policy</a>
+<a class="text-gray-600 hover:text-white text-sm transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script>
+        (() => {
+            const button = document.getElementById("mobileMenuButton");
+            const icon = document.getElementById("mobileMenuIcon");
+            const menu = document.getElementById("mobileMenu");
+            if (!button || !icon || !menu) return;
+
+            const openMenu = () => {
+                menu.classList.remove("hidden");
+                button.setAttribute("aria-expanded", "true");
+                button.setAttribute("aria-label", "Close menu");
+                icon.textContent = "close";
+                document.body.classList.add("overflow-hidden");
+            };
+
+            const closeMenu = () => {
+                menu.classList.add("hidden");
+                button.setAttribute("aria-expanded", "false");
+                button.setAttribute("aria-label", "Open menu");
+                icon.textContent = "menu";
+                document.body.classList.remove("overflow-hidden");
+            };
+
+            const toggleMenu = () => {
+                if (menu.classList.contains("hidden")) {
+                    openMenu();
+                } else {
+                    closeMenu();
+                }
+            };
+
+            button.addEventListener("click", (e) => {
+                e.stopPropagation();
+                toggleMenu();
+            });
+
+            menu.addEventListener("click", (e) => {
+                const target = e.target;
+                if (!(target instanceof Element)) return;
+                if (target.closest("a")) closeMenu();
+            });
+
+            document.addEventListener("click", (e) => {
+                if (menu.classList.contains("hidden")) return;
+                const target = e.target;
+                if (!(target instanceof Node)) return;
+                if (button.contains(target) || menu.contains(target)) return;
+                closeMenu();
+            });
+
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape") closeMenu();
+            });
+
+            window.addEventListener("resize", () => {
+                if (window.matchMedia("(min-width: 768px)").matches) closeMenu();
+            });
+        })();
+</script>
+</body></html>
